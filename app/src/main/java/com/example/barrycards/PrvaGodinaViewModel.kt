@@ -4,12 +4,14 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 
+
 class PrvaGodinaViewModel(
-    application: Application?,
-    private var prvaGodinaRepozitorij: PrvaGodinaRepozitorij,
-    private var sviKolegiji: LiveData<List<PrvaGodinaKolegiji>>,
-    private var prvaGodinaBaza: PrvaGodinaBaza
+    application: Application?
 ) : AndroidViewModel(application!!) {
+
+    private var prvaGodinaRepozitorij: PrvaGodinaRepozitorij
+    private var sviKolegiji: LiveData<List<PrvaGodinaKolegiji>>
+    private lateinit var prvaGodinaBaza: PrvaGodinaBaza
 
     fun insert(kolegiji: PrvaGodinaKolegiji?) {
         prvaGodinaRepozitorij.insert(kolegiji)

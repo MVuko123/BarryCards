@@ -1,18 +1,15 @@
 package com.example.barrycards
 
-import android.R
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -24,6 +21,7 @@ class ActivityPrvaGodina : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(com.example.barrycards.R.layout.activity_prva_godina)
         val buttonDodajZadatak = findViewById<FloatingActionButton>(com.example.barrycards.R.id.button_add_kolegiji)
+
 
         //val uloga = intent.getStringExtra("Uloga")
 
@@ -43,7 +41,9 @@ class ActivityPrvaGodina : AppCompatActivity() {
         recyclerViewPrviKolegiji.setHasFixedSize(true)
         val adapterPrvaGodina = PrvaGodinaAdapter()
         recyclerViewPrviKolegiji.adapter = adapterPrvaGodina
-        prvaGodinaViewModel = ViewModelProvider(this).get<PrvaGodinaViewModel>(PrvaGodinaViewModel::class.java)
+        prvaGodinaViewModel =
+            ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(application))[PrvaGodinaViewModel::class.java]
+        //prvaGodinaViewModel = ViewModelProvider(this)[PrvaGodinaViewModel::class.java]
         prvaGodinaViewModel!!.getSviPrviKolegiji().observe(this, object : Observer<List<PrvaGodinaKolegiji?>?> {
             override fun onChanged(prviKolegiji: List<PrvaGodinaKolegiji?>?) {
                 adapterPrvaGodina.setPrviKolegijiList(prviKolegiji as List<PrvaGodinaKolegiji>)
