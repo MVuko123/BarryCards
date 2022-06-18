@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BarryCards">
         <activity
+            android:name=".AddPrvaGodinaKolegiji"
+            android:exported="false"
+            android:parentActivityName=".ActivityPrvaGodina"/>
+        <activity
+            android:name=".ActivityPrvaGodina"
+            android:exported="false"
+            android:parentActivityName=".OdabirActivity"/>
+        <activity
+            android:name=".AdminPrijava"
+            android:exported="false"
+            android:parentActivityName=".OdabirActivity" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -18,7 +30,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".OdabirActivity" android:exported="true" ></activity>
+        <activity
+            android:name=".OdabirActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

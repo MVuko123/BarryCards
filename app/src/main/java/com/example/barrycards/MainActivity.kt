@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.view.animation.AnimationUtils
+import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -23,5 +24,8 @@ class MainActivity : AppCompatActivity() {
                 finish()
             }, 500)
         }, 1500) //ceka sekudnu i pol da provede drugu animaciju
+
+
+
     }
 }
