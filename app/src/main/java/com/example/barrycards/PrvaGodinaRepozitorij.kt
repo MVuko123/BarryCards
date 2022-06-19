@@ -9,16 +9,16 @@ abstract class PrvaGodinaRepozitorij(
     application: Application?,
     private var prvaGodinaBaza: PrvaGodinaBaza
 ) {
-    private var getPrvaGodinaList: LiveData<List<PrvaGodinaKolegiji>>
+    var getPrvaGodinaList: LiveData<List<PrvaGodinaKolegiji>>
         get() {
-            return getPrvaGodinaList
+            return field
         }
     abstract val prvaGodinaList: LiveData<List<PrvaGodinaKolegiji>>
 
     fun insert(prvaGodinaKolegiji: PrvaGodinaKolegiji?) {}
     private abstract class InsertPrvaGodinaAsyncTask private constructor(prvaGodinaBaza: PrvaGodinaBaza) :
         AsyncTask<PrvaGodinaKolegiji?, Void?, Void?>() {
-        private val prvaGodinaBaza: PrvaGodinaBaza = TODO()
+        private val prvaGodinaBaza: PrvaGodinaBaza
 
         init {
             this.prvaGodinaBaza = prvaGodinaBaza

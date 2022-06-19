@@ -56,7 +56,7 @@ class AddPrvaGodinaKolegiji : AppCompatActivity() {
         finish()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val menuInflater = menuInflater
         menuInflater.inflate(com.example.barrycards.R.menu.add_prvi_kolegiji_menu, menu)
         return true

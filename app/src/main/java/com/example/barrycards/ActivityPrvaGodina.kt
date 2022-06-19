@@ -7,43 +7,44 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProvider.NewInstanceFactory.Companion.instance
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+
 
 
 class ActivityPrvaGodina : AppCompatActivity() {
     private var prvaGodinaViewModel: PrvaGodinaViewModel? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.example.barrycards.R.layout.activity_prva_godina)
-        val buttonDodajZadatak = findViewById<FloatingActionButton>(com.example.barrycards.R.id.button_add_kolegiji)
+        setContentView(R.layout.activity_prva_godina)
+        val buttonDodajZadatak = findViewById<FloatingActionButton>(R.id.button_add_kolegiji)
 
 
         //val uloga = intent.getStringExtra("Uloga")
 
         //if ("Admin" == uloga || "Superuser" == uloga) {
             buttonDodajZadatak.visibility = View.VISIBLE
-            buttonDodajZadatak.setOnClickListener(object : View.OnClickListener {
-                override fun onClick(v: View?) {
-                    val intent = Intent(this@ActivityPrvaGodina, AddPrvaGodinaKolegiji::class.java)
-                    startActivityForResult(intent, ADD_PRVI_KOLEGIJI_REQUEST)
-                }
-            })
+            buttonDodajZadatak.setOnClickListener {
+                val intent = Intent(this@ActivityPrvaGodina, AddPrvaGodinaKolegiji::class.java)
+                startActivityForResult(intent, ADD_PRVI_KOLEGIJI_REQUEST)
+            }
         /*} else {
             buttonDodajZadatak.visibility = View.GONE
         }*/
-        val recyclerViewPrviKolegiji = findViewById<RecyclerView>(com.example.barrycards.R.id.recycler_view_prva_godina)
+        val recyclerViewPrviKolegiji = findViewById<RecyclerView>(R.id.recycler_view_prva_godina)
         recyclerViewPrviKolegiji.layoutManager = LinearLayoutManager(this)
         recyclerViewPrviKolegiji.setHasFixedSize(true)
         val adapterPrvaGodina = PrvaGodinaAdapter()
         recyclerViewPrviKolegiji.adapter = adapterPrvaGodina
-        prvaGodinaViewModel =
-            ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(application))[PrvaGodinaViewModel::class.java]
-        //prvaGodinaViewModel = ViewModelProvider(this)[PrvaGodinaViewModel::class.java]
+
+        prvaGodinaViewModel = ViewModelProvider(this, TvornicaViewModela(application))[PrvaGodinaViewModel::class.java]
         prvaGodinaViewModel!!.getSviPrviKolegiji().observe(this, object : Observer<List<PrvaGodinaKolegiji?>?> {
             override fun onChanged(prviKolegiji: List<PrvaGodinaKolegiji?>?) {
                 adapterPrvaGodina.setPrviKolegijiList(prviKolegiji as List<PrvaGodinaKolegiji>)
@@ -84,6 +85,7 @@ class ActivityPrvaGodina : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ADD_PRVI_KOLEGIJI_REQUEST && resultCode == RESULT_OK) {
@@ -110,11 +112,11 @@ class ActivityPrvaGodina : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val uloga = intent.getStringExtra("Uloga")
         return if ("Admin" == uloga) {
             val menuInflater = menuInflater
-            menuInflater.inflate(com.example.barrycards.R.menu.delete_prvi_kolegij_menu, menu)
+            menuInflater.inflate(R.menu.delete_prvi_kolegij_menu, menu)
             true
         } else {
             false
@@ -125,7 +127,7 @@ class ActivityPrvaGodina : AppCompatActivity() {
         val uloga = intent.getStringExtra("Uloga")
         return if ("Admin" == uloga) {
             when (item.getItemId()) {
-                com.example.barrycards.R.id.delete_all_prvi_kolegiji -> {
+                R.id.delete_all_prvi_kolegiji -> {
                     //prvaGodinaViewModel.deleteAll()
                     Toast.makeText(this, "Svi zadaci obrisani", Toast.LENGTH_SHORT).show()
                     true

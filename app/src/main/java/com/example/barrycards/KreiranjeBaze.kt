@@ -25,7 +25,7 @@ abstract class KreiranjeBaze : RoomDatabase() {
     abstract fun prvaGodinaBaza(): PrvaGodinaBaza?
     private class PopuniDbAsycTask(db: KreiranjeBaze) :
         AsyncTask<Void?, Void?, Void?>() {
-        private val prvaGodinaBaza: PrvaGodinaBaza = TODO()
+        private val prvaGodinaBaza: PrvaGodinaBaza
          override fun doInBackground(vararg params: Void?): Void? {
              prvaGodinaBaza.insertPrvaGodina(
                 PrvaGodinaKolegiji(
