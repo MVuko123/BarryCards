@@ -45,12 +45,9 @@ class ActivityPrvaGodina : AppCompatActivity() {
         recyclerViewPrviKolegiji.adapter = adapterPrvaGodina
 
         prvaGodinaViewModel = ViewModelProvider(this, TvornicaViewModela(application))[PrvaGodinaViewModel::class.java]
-        prvaGodinaViewModel!!.getSviPrviKolegiji().observe(this, object : Observer<List<PrvaGodinaKolegiji?>?> {
-            override fun onChanged(prviKolegiji: List<PrvaGodinaKolegiji?>?) {
-                adapterPrvaGodina.setPrviKolegijiList(prviKolegiji as List<PrvaGodinaKolegiji>)
-            }
-        })
-       // if ("Admin" == uloga) {
+        prvaGodinaViewModel!!.getSviPrviKolegiji().observe(this
+        ) { prviKolegiji -> adapterPrvaGodina.setPrviKolegijiList(prviKolegiji as List<PrvaGodinaKolegiji>) }
+        // if ("Admin" == uloga) {
            /* ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
                 0,
                 ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT

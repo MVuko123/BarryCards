@@ -15,8 +15,13 @@ abstract class PrvaGodinaRepozitorij(
         }
     abstract val prvaGodinaList: LiveData<List<PrvaGodinaKolegiji>>
 
-    fun insert(prvaGodinaKolegiji: PrvaGodinaKolegiji?) {}
-    private abstract class InsertPrvaGodinaAsyncTask private constructor(prvaGodinaBaza: PrvaGodinaBaza) :
+
+
+    fun insert(prvaGodinaKolegiji: PrvaGodinaKolegiji?) {
+        InsertPrvaGodinaAsyncTask(prvaGodinaBaza).execute(prvaGodinaKolegiji)
+    }
+
+    private class InsertPrvaGodinaAsyncTask(prvaGodinaBaza: PrvaGodinaBaza) :
         AsyncTask<PrvaGodinaKolegiji?, Void?, Void?>() {
         private val prvaGodinaBaza: PrvaGodinaBaza
 
@@ -30,6 +35,7 @@ abstract class PrvaGodinaRepozitorij(
         }
     }
 
+
     init {
         val baza: KreiranjeBaze = KreiranjeBaze.getInstance(application)
         prvaGodinaBaza = baza.prvaGodinaBaza()!!
@@ -38,3 +44,5 @@ abstract class PrvaGodinaRepozitorij(
 
 
 }
+
+

@@ -50,13 +50,11 @@ class PrvaGodinaAdapter : RecyclerView.Adapter<PrvaGodinaAdapter.PrvaGodinaHolde
             textViewTitle = itemView.findViewById(com.example.barrycards.R.id.text_view_naziv)
             textViewNositelj = itemView.findViewById(com.example.barrycards.R.id.text_view_nositelj)
             textViewECTS = itemView.findViewById(com.example.barrycards.R.id.text_view_ECTS)
-            itemView.setOnClickListener(object : View.OnClickListener {
-                override fun onClick(view: View?) {
-                    val position = adapterPosition
-                    if (listener != null && position != RecyclerView.NO_POSITION) //NO_POSITION je uvijek -1
-                        listener!!.onItemClickPrviKolegiji(prviKolegiji[position])
-                }
-            })
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (listener != null && position != RecyclerView.NO_POSITION) //NO_POSITION je uvijek -1
+                    listener!!.onItemClickPrviKolegiji(prviKolegiji[position])
+            }
         }
     }
 

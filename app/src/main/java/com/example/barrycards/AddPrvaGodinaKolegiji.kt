@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.widget.EditText
 import android.widget.NumberPicker
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -55,6 +56,7 @@ class AddPrvaGodinaKolegiji : AppCompatActivity() {
         setResult(RESULT_OK, data)
         finish()
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val menuInflater = menuInflater
