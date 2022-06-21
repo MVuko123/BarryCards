@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BarryCards">
         <activity
-            android:name=".AddPrvaGodinaKolegiji"
+            android:name=".AddEditPrvaGodinaKolegiji"
             android:exported="false"
             android:parentActivityName=".ActivityPrvaGodina"/>
         <activity

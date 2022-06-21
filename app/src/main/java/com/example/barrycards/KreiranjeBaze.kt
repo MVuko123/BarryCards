@@ -25,21 +25,39 @@ abstract class KreiranjeBaze : RoomDatabase() {
     abstract fun prvaGodinaBaza(): PrvaGodinaBaza?
     private class PopuniDbAsycTask(db: KreiranjeBaze) :
         AsyncTask<Void?, Void?, Void?>() {
-        private val prvaGodinaBaza: PrvaGodinaBaza
-         override fun doInBackground(vararg params: Void?): Void? {
+        private val prvaGodinaBaza: PrvaGodinaBaza = db.prvaGodinaBaza()!!
+        override fun doInBackground(vararg params: Void?): Void? {
              prvaGodinaBaza.insertPrvaGodina(
                 PrvaGodinaKolegiji(
                     "Programiranje 1",
                     "Robert Šojo",
-                    "7.5",
+                    "ECTS:7",
+                )
+            )
+            prvaGodinaBaza.insertPrvaGodina(
+                PrvaGodinaKolegiji(
+                    "Programiranje 2",
+                    "Krešimir Nenadić",
+                    "ECTS:8",
+                )
+            )
+            prvaGodinaBaza.insertPrvaGodina(
+                PrvaGodinaKolegiji(
+                    "Matematika za računarstvo 1",
+                    "Ivan Hrehorović",
+                    "ECTS:5",
+                )
+            )
+            prvaGodinaBaza.insertPrvaGodina(
+                PrvaGodinaKolegiji(
+                    "Fizika",
+                    "Željka Mioković",
+                    "ECTS:5",
                 )
             )
             return null
         }
 
-        init {
-            prvaGodinaBaza = db.prvaGodinaBaza()!!
-        }
     }
 
     companion object {
@@ -57,7 +75,7 @@ abstract class KreiranjeBaze : RoomDatabase() {
                         .build()
                 }
             }
-            return KreiranjeBaze.Companion.instance!!
+            return instance!!
         }
 
         private val roomCallback: Callback = object : Callback() {

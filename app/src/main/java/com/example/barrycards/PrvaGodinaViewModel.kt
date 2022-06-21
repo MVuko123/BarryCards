@@ -19,6 +19,18 @@ class PrvaGodinaViewModel(
         prvaGodinaRepozitorij.insert(kolegiji)
     }
 
+    fun update(kolegiji: PrvaGodinaKolegiji?){
+        prvaGodinaRepozitorij.update(kolegiji)
+    }
+
+    fun delete(kolegiji: PrvaGodinaKolegiji?){
+        prvaGodinaRepozitorij.delete(kolegiji)
+    }
+
+    fun deleteAll(){
+        prvaGodinaRepozitorij.deleteAll()
+    }
+
 
     fun getSviPrviKolegiji(): LiveData<List<PrvaGodinaKolegiji>> {
         return sviKolegiji

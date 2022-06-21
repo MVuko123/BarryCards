@@ -8,24 +8,15 @@
     >
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp">
-
-        <TextView
-            android:id="@+id/text_view_ECTS"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:text="1"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
             android:id="@+id/text_view_naziv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_toStartOf="@id/text_view_ECTS"
             android:ellipsize="end"
             android:maxLines="1"
             android:text="Naziv"
@@ -37,6 +28,24 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/text_view_naziv"
             android:text="Nositelj" />
+
+        <TextView
+            android:id="@+id/text_view_ECTS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_nositelj"
+            android:text="1" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="67dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="-15dp"
+            android:rotation="-90"
+            android:src="@drawable/ic_arrow_down" />
+
 
     </RelativeLayout>
 

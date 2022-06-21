@@ -32,8 +32,8 @@ class PrvaGodinaAdapter : RecyclerView.Adapter<PrvaGodinaAdapter.PrvaGodinaHolde
         return prviKolegiji.size
     }
 
-    fun setPrviKolegijiList(prviKolegiji: List<PrvaGodinaKolegiji>) {
-        this.prviKolegiji = prviKolegiji
+    fun setPrviKolegijiList(prviKolegiji: List<PrvaGodinaKolegiji?>?) {
+        this.prviKolegiji = prviKolegiji as List<PrvaGodinaKolegiji>
         notifyDataSetChanged()
     }
 

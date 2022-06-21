@@ -12,7 +12,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 
 
-class AddPrvaGodinaKolegiji : AppCompatActivity() {
+class AddEditPrvaGodinaKolegiji : AppCompatActivity() {
     private var editNaziv: EditText? = null
     private var editNositelj: EditText? = null
     private var editECTS: EditText? = null

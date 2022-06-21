@@ -21,16 +21,54 @@ abstract class PrvaGodinaRepozitorij(
         InsertPrvaGodinaAsyncTask(prvaGodinaBaza).execute(prvaGodinaKolegiji)
     }
 
+    fun update(prvaGodinaKolegiji: PrvaGodinaKolegiji?){
+        UpdatePrvaGodinaAyncTask(prvaGodinaBaza).execute(prvaGodinaKolegiji)
+    }
+
+    fun delete(prvaGodinaKolegiji: PrvaGodinaKolegiji?){
+        DeletePrvaGodinaAyncTask(prvaGodinaBaza).execute(prvaGodinaKolegiji)
+    }
+
+    fun deleteAll() {
+        DeleteAllPrvaGodinaAyncTask(prvaGodinaBaza).execute()
+    }
+
     private class InsertPrvaGodinaAsyncTask(prvaGodinaBaza: PrvaGodinaBaza) :
         AsyncTask<PrvaGodinaKolegiji?, Void?, Void?>() {
-        private val prvaGodinaBaza: PrvaGodinaBaza
-
-        init {
-            this.prvaGodinaBaza = prvaGodinaBaza
-        }
+        private val prvaGodinaBaza: PrvaGodinaBaza = prvaGodinaBaza
 
         override fun doInBackground(vararg params: PrvaGodinaKolegiji?): Void? {
             prvaGodinaBaza.insertPrvaGodina(params[0])
+            return null
+        }
+    }
+
+    private class UpdatePrvaGodinaAyncTask(prvaGodinaBaza: PrvaGodinaBaza) :
+        AsyncTask<PrvaGodinaKolegiji?, Void?, Void?>() {
+        private val prvaGodinaBaza: PrvaGodinaBaza = prvaGodinaBaza
+
+        override fun doInBackground(vararg params: PrvaGodinaKolegiji?): Void? {
+            prvaGodinaBaza.updatePrvaGodina(params[0])
+            return null
+        }
+    }
+
+    private class DeletePrvaGodinaAyncTask(prvaGodinaBaza: PrvaGodinaBaza) :
+        AsyncTask<PrvaGodinaKolegiji?, Void?, Void?>() {
+        private val prvaGodinaBaza: PrvaGodinaBaza = prvaGodinaBaza
+
+        override fun doInBackground(vararg params: PrvaGodinaKolegiji?): Void? {
+            prvaGodinaBaza.deletePrvaGodina(params[0])
+            return null
+        }
+    }
+
+    private class DeleteAllPrvaGodinaAyncTask(prvaGodinaBaza: PrvaGodinaBaza) :
+        AsyncTask<PrvaGodinaKolegiji?, Void?, Void?>() {
+        private val prvaGodinaBaza: PrvaGodinaBaza = prvaGodinaBaza
+
+        override fun doInBackground(vararg params: PrvaGodinaKolegiji?): Void? {
+            prvaGodinaBaza.deleteAllPrvaGodinaKolegiji()
             return null
         }
     }
