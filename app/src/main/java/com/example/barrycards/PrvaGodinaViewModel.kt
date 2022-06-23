@@ -12,19 +12,19 @@ class PrvaGodinaViewModel(
 
     private var prvaGodinaRepozitorij: PrvaGodinaRepozitorij
     private var sviKolegiji: LiveData<List<PrvaGodinaKolegiji>>
-    private lateinit var prvaGodinaBaza: PrvaGodinaBaza
+    private var prvaGodinaBaza: PrvaGodinaBaza
 
 
-    fun insert(kolegiji: PrvaGodinaKolegiji?) {
-        prvaGodinaRepozitorij.insert(kolegiji)
+    fun insert(prvaGodinaKolegiji: PrvaGodinaKolegiji?) {
+        prvaGodinaRepozitorij.insert(prvaGodinaKolegiji)
     }
 
-    fun update(kolegiji: PrvaGodinaKolegiji?){
-        prvaGodinaRepozitorij.update(kolegiji)
+    fun update(prvaGodinaKolegiji: PrvaGodinaKolegiji?){
+        prvaGodinaRepozitorij.update(prvaGodinaKolegiji)
     }
 
-    fun delete(kolegiji: PrvaGodinaKolegiji?){
-        prvaGodinaRepozitorij.delete(kolegiji)
+    fun delete(prvaGodinaKolegiji: PrvaGodinaKolegiji?){
+        prvaGodinaRepozitorij.delete(prvaGodinaKolegiji)
     }
 
     fun deleteAll(){

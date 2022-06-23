@@ -1,14 +1,12 @@
 package com.example.barrycards
 
 import android.app.Application
-import android.content.Context
 import android.os.AsyncTask
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import java.text.DateFormat
-import androidx.annotation.NonNull
+
 
 
 
@@ -66,12 +64,12 @@ abstract class KreiranjeBaze : RoomDatabase() {
         private var instance: KreiranjeBaze? = null
         @Synchronized
         fun getInstance(context: Application?): KreiranjeBaze {
-            if (KreiranjeBaze.Companion.instance == null) {
+            if (instance == null) {
                 if (context != null) {
-                    KreiranjeBaze.Companion.instance = Room.databaseBuilder(
-                        context.getApplicationContext(),
-                        KreiranjeBaze::class.java, KreiranjeBaze.Companion.DB_NAME
-                    ).fallbackToDestructiveMigration().addCallback(KreiranjeBaze.Companion.roomCallback)
+                    instance = Room.databaseBuilder(
+                        context.applicationContext,
+                        KreiranjeBaze::class.java, DB_NAME
+                    ).fallbackToDestructiveMigration().addCallback(roomCallback)
                         .build()
                 }
             }

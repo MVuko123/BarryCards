@@ -8,7 +8,6 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +18,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ActivityPrvaGodina : AppCompatActivity() {
     private var prvaGodinaViewModel: PrvaGodinaViewModel? = null
-    var prvaGodinaAdapter: PrvaGodinaAdapter?= null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_prva_godina)
@@ -94,8 +92,8 @@ class ActivityPrvaGodina : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ADD_PRVI_KOLEGIJI_REQUEST && resultCode == RESULT_OK) {
             val naziv = data!!.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_NAZIV)
-            val nositelj = data!!.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_NOSITELJ)
-            val ects = data!!.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_ECTS)
+            val nositelj = data.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_NOSITELJ)
+            val ects = data.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_ECTS)
             val prvaGodinaKolegiji = PrvaGodinaKolegiji(naziv.toString(), nositelj.toString(), "ECTS:" +ects.toString())
             prvaGodinaViewModel?.insert(prvaGodinaKolegiji)
             Toast.makeText(this, "Kolegiji spremljen", Toast.LENGTH_SHORT).show()
@@ -105,9 +103,9 @@ class ActivityPrvaGodina : AppCompatActivity() {
                 Toast.makeText(this, "Kolegij ne može biti ažuriran", Toast.LENGTH_SHORT).show()
                 return
             }
-            val naziv = data!!.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_NAZIV)
-            val nositelj = data!!.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_NOSITELJ)
-            val ects = data!!.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_ECTS)
+            val naziv = data.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_NAZIV)
+            val nositelj = data.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_NOSITELJ)
+            val ects = data.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_ECTS)
 
             val prvaGodinaKolegiji = PrvaGodinaKolegiji(naziv.toString(), nositelj.toString(), ects.toString())
             prvaGodinaViewModel?.update(prvaGodinaKolegiji)
