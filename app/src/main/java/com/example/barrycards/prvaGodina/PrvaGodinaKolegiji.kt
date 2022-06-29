@@ -1,4 +1,4 @@
-package com.example.barrycards
+package com.example.barrycards.prvaGodina
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -1,8 +1,9 @@
-package com.example.barrycards
+package com.example.barrycards.prvaGodina
 
 import android.app.Application
 import android.os.AsyncTask
 import androidx.lifecycle.LiveData
+import com.example.barrycards.KreiranjeBaze
 
 
 abstract class PrvaGodinaRepozitorij(

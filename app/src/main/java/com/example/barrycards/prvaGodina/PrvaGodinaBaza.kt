@@ -1,4 +1,4 @@
-package com.example.barrycards
+package com.example.barrycards.prvaGodina
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
@@ -12,7 +12,7 @@ interface PrvaGodinaBaza {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertPrvaGodina(prvaGodinaKolegiji: PrvaGodinaKolegiji?)
 
-    @Update
+    @Update(onConflict = OnConflictStrategy.REPLACE)
     fun updatePrvaGodina(prvaGodinaKolegiji: PrvaGodinaKolegiji?)
 
     @Delete

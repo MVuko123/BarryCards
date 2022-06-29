@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/BarryCards.iml" filepath="$PROJECT_DIR$/.idea/modules/BarryCards.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BarryCards.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BarryCards.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BarryCards.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BarryCards.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BarryCards.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BarryCards.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BarryCards.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BarryCards.app.unitTest.iml" />
     </modules>
   </component>
 </project>

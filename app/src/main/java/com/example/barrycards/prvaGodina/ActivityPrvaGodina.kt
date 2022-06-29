@@ -1,4 +1,4 @@
-package com.example.barrycards
+package com.example.barrycards.prvaGodina
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,6 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.barrycards.AddEditKolegiji
+import com.example.barrycards.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
@@ -21,16 +23,15 @@ class ActivityPrvaGodina : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_prva_godina)
-        val buttonDodajZadatak = findViewById<FloatingActionButton>(R.id.button_add_kolegiji)
-
+        val buttonDodajKolegiji = findViewById<FloatingActionButton>(R.id.button_add_kolegiji)
 
 
         //val uloga = intent.getStringExtra("Uloga")
 
         //if ("Admin" == uloga || "Superuser" == uloga) {
-            buttonDodajZadatak.visibility = View.VISIBLE
-            buttonDodajZadatak.setOnClickListener {
-                val intent = Intent(this@ActivityPrvaGodina, AddEditPrvaGodinaKolegiji::class.java)
+            buttonDodajKolegiji.visibility = View.VISIBLE
+            buttonDodajKolegiji.setOnClickListener {
+                val intent = Intent(this@ActivityPrvaGodina, AddEditKolegiji::class.java)
                 startActivityForResult(intent, ADD_PRVI_KOLEGIJI_REQUEST)
             }
         /*} else {
@@ -46,7 +47,7 @@ class ActivityPrvaGodina : AppCompatActivity() {
         val adapterPrvaGodina = PrvaGodinaAdapter()
         recyclerViewPrviKolegiji.adapter = adapterPrvaGodina
 
-        prvaGodinaViewModel = ViewModelProvider(this, TvornicaViewModela(application))[PrvaGodinaViewModel::class.java]
+        prvaGodinaViewModel = ViewModelProvider(this, TvornicaPrvogViewModela(application))[PrvaGodinaViewModel::class.java]
         prvaGodinaViewModel!!.getSviPrviKolegiji().observe(this
         ) { prviKolegiji -> adapterPrvaGodina.setPrviKolegijiList(prviKolegiji as List<PrvaGodinaKolegiji>) }
 
@@ -71,14 +72,15 @@ class ActivityPrvaGodina : AppCompatActivity() {
                 }
             }).attachToRecyclerView(recyclerViewPrviKolegiji)
 
-            adapterPrvaGodina.setOnItemClickListener(object : PrvaGodinaAdapter.OnItemClickListenerPrviKolegiji {
+            adapterPrvaGodina.setOnItemClickListener(object :
+                PrvaGodinaAdapter.OnItemClickListenerPrviKolegiji {
                 override fun onItemClickPrviKolegiji(prvaGodinaKolegiji: PrvaGodinaKolegiji?) {
                     Log.d(TAG, "onItemClickPrviKolegiji: prviKolkegiji: $prvaGodinaKolegiji")
-                    val intent = Intent(this@ActivityPrvaGodina, AddEditPrvaGodinaKolegiji::class.java)
-                    intent.putExtra(AddEditPrvaGodinaKolegiji.EXTRA_ID_PRVI_KOLEGIJI, prvaGodinaKolegiji?.id)
-                    intent.putExtra(AddEditPrvaGodinaKolegiji.EXTRA_NAZIV, prvaGodinaKolegiji?.naziv)
-                    intent.putExtra(AddEditPrvaGodinaKolegiji.EXTRA_NOSITELJ, prvaGodinaKolegiji?.nositelj)
-                    intent.putExtra(AddEditPrvaGodinaKolegiji.EXTRA_ECTS, prvaGodinaKolegiji?.ects)
+                    val intent = Intent(this@ActivityPrvaGodina, AddEditKolegiji::class.java)
+                    intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, prvaGodinaKolegiji?.id)
+                    intent.putExtra(AddEditKolegiji.EXTRA_NAZIV, prvaGodinaKolegiji?.naziv)
+                    intent.putExtra(AddEditKolegiji.EXTRA_NOSITELJ, prvaGodinaKolegiji?.nositelj)
+                    intent.putExtra(AddEditKolegiji.EXTRA_ECTS, prvaGodinaKolegiji?.ects)
                     startActivityForResult(intent, EDIT_PRVI_KOLEGIJI_REQUEST)
 
                 }
@@ -91,21 +93,21 @@ class ActivityPrvaGodina : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == ADD_PRVI_KOLEGIJI_REQUEST && resultCode == RESULT_OK) {
-            val naziv = data!!.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_NAZIV)
-            val nositelj = data.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_NOSITELJ)
-            val ects = data.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_ECTS)
+            val naziv = data!!.getStringExtra(AddEditKolegiji.EXTRA_NAZIV)
+            val nositelj = data.getStringExtra(AddEditKolegiji.EXTRA_NOSITELJ)
+            val ects = data.getStringExtra(AddEditKolegiji.EXTRA_ECTS)
             val prvaGodinaKolegiji = PrvaGodinaKolegiji(naziv.toString(), nositelj.toString(), "ECTS:" +ects.toString())
             prvaGodinaViewModel?.insert(prvaGodinaKolegiji)
             Toast.makeText(this, "Kolegiji spremljen", Toast.LENGTH_SHORT).show()
         } else if (requestCode == EDIT_PRVI_KOLEGIJI_REQUEST && resultCode == RESULT_OK) {
-            val id = data!!.getIntExtra(AddEditPrvaGodinaKolegiji.EXTRA_ID_PRVI_KOLEGIJI, -1)
+            val id = data!!.getIntExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, -1)
             if (id == -1) {
                 Toast.makeText(this, "Kolegij ne može biti ažuriran", Toast.LENGTH_SHORT).show()
                 return
             }
-            val naziv = data.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_NAZIV)
-            val nositelj = data.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_NOSITELJ)
-            val ects = data.getStringExtra(AddEditPrvaGodinaKolegiji.EXTRA_ECTS)
+            val naziv = data.getStringExtra(AddEditKolegiji.EXTRA_NAZIV)
+            val nositelj = data.getStringExtra(AddEditKolegiji.EXTRA_NOSITELJ)
+            val ects = data.getStringExtra(AddEditKolegiji.EXTRA_ECTS)
 
             val prvaGodinaKolegiji = PrvaGodinaKolegiji(naziv.toString(), nositelj.toString(), ects.toString())
             prvaGodinaViewModel?.update(prvaGodinaKolegiji)
@@ -119,7 +121,7 @@ class ActivityPrvaGodina : AppCompatActivity() {
         //val uloga = intent.getStringExtra("Uloga")
         //return if ("Admin" == uloga) {
             val menuInflater = menuInflater
-            menuInflater.inflate(R.menu.delete_all_prvi_kolegij_menu, menu)
+            menuInflater.inflate(R.menu.delete_all_kolegij_menu, menu)
             return true
         //} else {
         //    false
@@ -130,7 +132,7 @@ class ActivityPrvaGodina : AppCompatActivity() {
         //val uloga = intent.getStringExtra("Uloga")
         //return if ("Admin" == uloga) {
         return when (item.itemId) {
-            R.id.delete_all_prvi_kolegiji -> {
+            R.id.delete_all_kolegiji -> {
                 prvaGodinaViewModel?.deleteAll()
                 Toast.makeText(this, "Svi kolegiji obrisani", Toast.LENGTH_SHORT).show()
                 true

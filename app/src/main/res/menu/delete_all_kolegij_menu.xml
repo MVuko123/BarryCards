@@ -2,9 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/save_prvi_kolegiji"
-        android:icon="@drawable/ic_save"
-        android:title="Spremi"
-        app:showAsAction="ifRoom" />
+        android:id="@+id/delete_all_kolegiji"
+        android:title="Obriši sve kolegije"
+        app:showAsAction="never" />
 
 </menu>

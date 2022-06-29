@@ -1,27 +1,24 @@
 package com.example.barrycards
 
-import android.R
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
-import android.widget.NumberPicker
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 
 
-class AddEditPrvaGodinaKolegiji : AppCompatActivity() {
+class AddEditKolegiji : AppCompatActivity() {
     private var editNaziv: EditText? = null
     private var editNositelj: EditText? = null
     private var editECTS: EditText? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(com.example.barrycards.R.layout.activity_add_prva_godina_kolegiji)
-        editNaziv = findViewById(com.example.barrycards.R.id.edit_naziv)
-        editNositelj = findViewById(com.example.barrycards.R.id.edit_nositelj)
-        editECTS = findViewById(com.example.barrycards.R.id.edit_ECTS)
+        setContentView(R.layout.activity_add_kolegiji)
+        editNaziv = findViewById(R.id.edit_naziv)
+        editNositelj = findViewById(R.id.edit_nositelj)
+        editECTS = findViewById(R.id.edit_ECTS)
 
         val intent = intent
         if (intent.hasExtra(EXTRA_ID_PRVI_KOLEGIJI)) {
@@ -60,13 +57,13 @@ class AddEditPrvaGodinaKolegiji : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val menuInflater = menuInflater
-        menuInflater.inflate(com.example.barrycards.R.menu.add_prvi_kolegiji_menu, menu)
+        menuInflater.inflate(R.menu.add_kolegiji_menu, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.getItemId()) {
-            com.example.barrycards.R.id.save_prvi_kolegiji -> {
+            R.id.save_kolegiji -> {
                 savePrviKolegiji()
                 true
             }

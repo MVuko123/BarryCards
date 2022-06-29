@@ -6,24 +6,25 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-
-
-
-
-
+import com.example.barrycards.drugaGodina.DrugaGodinaBaza
+import com.example.barrycards.drugaGodina.DrugaGodinaKolegiji
+import com.example.barrycards.prvaGodina.PrvaGodinaBaza
+import com.example.barrycards.prvaGodina.PrvaGodinaKolegiji
 
 
 @Database(
-    entities = [PrvaGodinaKolegiji::class],
+    entities = [PrvaGodinaKolegiji::class, DrugaGodinaKolegiji::class],
     exportSchema = false,
     version = 1
 )
 
 abstract class KreiranjeBaze : RoomDatabase() {
     abstract fun prvaGodinaBaza(): PrvaGodinaBaza?
+    abstract fun drugaGodinaBaza(): DrugaGodinaBaza?
     private class PopuniDbAsycTask(db: KreiranjeBaze) :
         AsyncTask<Void?, Void?, Void?>() {
         private val prvaGodinaBaza: PrvaGodinaBaza = db.prvaGodinaBaza()!!
+        private val drugaGodinaBaza: DrugaGodinaBaza = db.drugaGodinaBaza()!!
         override fun doInBackground(vararg params: Void?): Void? {
              prvaGodinaBaza.insertPrvaGodina(
                 PrvaGodinaKolegiji(
@@ -51,6 +52,38 @@ abstract class KreiranjeBaze : RoomDatabase() {
                     "Fizika",
                     "Željka Mioković",
                     "ECTS:5",
+                )
+            )
+
+            drugaGodinaBaza.insertDrugaGodina(
+                DrugaGodinaKolegiji(
+                    "Programiranje u Javi" ,
+                    "Tomislav Galba" ,
+                    "6,5"
+                )
+            )
+
+            drugaGodinaBaza.insertDrugaGodina(
+                DrugaGodinaKolegiji(
+                    "Uvod u diskretnu matematiku" ,
+                    "Tomislav Rudec" ,
+                    "5"
+                )
+            )
+
+            drugaGodinaBaza.insertDrugaGodina(
+                DrugaGodinaKolegiji(
+                    "Informacijski sustavi i računalne mreže" ,
+                    "Anđelko Lišnjić" ,
+                    "7"
+                )
+            )
+
+            drugaGodinaBaza.insertDrugaGodina(
+                DrugaGodinaKolegiji(
+                    "Programiranje u Javi" ,
+                    "Tomislav Galba" ,
+                    "6,5"
                 )
             )
             return null

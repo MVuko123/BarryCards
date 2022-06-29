@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BarryCards">
         <activity
-            android:name=".AddEditPrvaGodinaKolegiji"
-            android:exported="false"
-            android:parentActivityName=".ActivityPrvaGodina"/>
+            android:name=".drugaGodina.ActivityDrugaGodina"
+            android:exported="false" />
         <activity
-            android:name=".ActivityPrvaGodina"
+            android:name=".AddEditKolegiji"
             android:exported="false"
-            android:parentActivityName=".OdabirActivity"/>
+            android:parentActivityName=".prvaGodina.ActivityPrvaGodina" />
+        <activity
+            android:name=".prvaGodina.ActivityPrvaGodina"
+            android:exported="false"
+            android:parentActivityName=".OdabirActivity" />
         <activity
             android:name=".AdminPrijava"
             android:exported="false"

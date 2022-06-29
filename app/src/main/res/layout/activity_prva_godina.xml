@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityPrvaGodina">
+    tools:context=".prvaGodina.ActivityPrvaGodina">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_prva_godina"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/prva_godina_item"/>
+        tools:listitem="@layout/sve_godine_item"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button_add_kolegiji"

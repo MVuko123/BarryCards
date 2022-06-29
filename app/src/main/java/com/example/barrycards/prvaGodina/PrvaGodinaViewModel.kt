@@ -1,9 +1,9 @@
-package com.example.barrycards
+package com.example.barrycards.prvaGodina
 
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-
+import com.example.barrycards.KreiranjeBaze
 
 
 class PrvaGodinaViewModel(

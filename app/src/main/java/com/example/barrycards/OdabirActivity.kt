@@ -1,13 +1,11 @@
 package com.example.barrycards
 
-import android.R
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_odabir.*
+import com.example.barrycards.drugaGodina.ActivityDrugaGodina
+import com.example.barrycards.prvaGodina.ActivityPrvaGodina
 
 
 class OdabirActivity : AppCompatActivity(){
@@ -25,6 +23,12 @@ class OdabirActivity : AppCompatActivity(){
        val prvaGodina = findViewById<Button>(com.example.barrycards.R.id.buttonPrvaGodina)
         prvaGodina.setOnClickListener{
             val Intent = Intent(this, ActivityPrvaGodina::class.java)
+            startActivity(Intent)
+        }
+
+        val drugaGodina = findViewById<Button>(R.id.buttonDrugaGodina)
+        drugaGodina.setOnClickListener{
+            val Intent = Intent(this, ActivityDrugaGodina::class.java)
             startActivity(Intent)
         }
 

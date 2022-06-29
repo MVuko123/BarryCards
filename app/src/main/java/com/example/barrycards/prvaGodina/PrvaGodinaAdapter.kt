@@ -1,13 +1,10 @@
-package com.example.barrycards
+package com.example.barrycards.prvaGodina
 
-import android.R
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import java.lang.String
-import kotlinx.android.synthetic.main.activity_prva_godina.*
 import kotlin.Int
 
 
@@ -17,7 +14,7 @@ class PrvaGodinaAdapter : RecyclerView.Adapter<PrvaGodinaAdapter.PrvaGodinaHolde
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PrvaGodinaHolder {
         val itemView: View = LayoutInflater.from(parent.context)
-            .inflate(com.example.barrycards.R.layout.prva_godina_item, parent, false)
+            .inflate(com.example.barrycards.R.layout.sve_godine_item, parent, false)
         return PrvaGodinaHolder(itemView)
     }
 
