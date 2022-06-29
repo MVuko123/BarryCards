@@ -62,5 +62,6 @@ class PrvaGodinaAdapter : RecyclerView.Adapter<PrvaGodinaAdapter.PrvaGodinaHolde
     fun setOnItemClickListener(listener: OnItemClickListenerPrviKolegiji?) {
         this.listener = listener
     }
+
 }
 

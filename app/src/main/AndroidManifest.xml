@@ -10,8 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BarryCards">
         <activity
+            android:name=".trecaGodina.ActivityTrecaGodina"
+            android:exported="false"
+            android:parentActivityName=".OdabirActivity"/>
+        <activity
             android:name=".drugaGodina.ActivityDrugaGodina"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".OdabirActivity"/>
         <activity
             android:name=".AddEditKolegiji"
             android:exported="false"

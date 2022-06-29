@@ -6,6 +6,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.barrycards.drugaGodina.ActivityDrugaGodina
 import com.example.barrycards.prvaGodina.ActivityPrvaGodina
+import com.example.barrycards.trecaGodina.ActivityTrecaGodina
 
 
 class OdabirActivity : AppCompatActivity(){
@@ -29,6 +30,12 @@ class OdabirActivity : AppCompatActivity(){
         val drugaGodina = findViewById<Button>(R.id.buttonDrugaGodina)
         drugaGodina.setOnClickListener{
             val Intent = Intent(this, ActivityDrugaGodina::class.java)
+            startActivity(Intent)
+        }
+
+        val trecaGodina = findViewById<Button>(R.id.buttonTrecaGodina)
+        trecaGodina.setOnClickListener{
+            val Intent = Intent(this, ActivityTrecaGodina::class.java)
             startActivity(Intent)
         }
 

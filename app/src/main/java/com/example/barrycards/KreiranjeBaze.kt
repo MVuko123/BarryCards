@@ -10,10 +10,12 @@ import com.example.barrycards.drugaGodina.DrugaGodinaBaza
 import com.example.barrycards.drugaGodina.DrugaGodinaKolegiji
 import com.example.barrycards.prvaGodina.PrvaGodinaBaza
 import com.example.barrycards.prvaGodina.PrvaGodinaKolegiji
+import com.example.barrycards.trecaGodina.TrecaGodinaBaza
+import com.example.barrycards.trecaGodina.TrecaGodinaKolegiji
 
 
 @Database(
-    entities = [PrvaGodinaKolegiji::class, DrugaGodinaKolegiji::class],
+    entities = [PrvaGodinaKolegiji::class, DrugaGodinaKolegiji::class, TrecaGodinaKolegiji::class],
     exportSchema = false,
     version = 1
 )
@@ -21,10 +23,12 @@ import com.example.barrycards.prvaGodina.PrvaGodinaKolegiji
 abstract class KreiranjeBaze : RoomDatabase() {
     abstract fun prvaGodinaBaza(): PrvaGodinaBaza?
     abstract fun drugaGodinaBaza(): DrugaGodinaBaza?
+    abstract fun trecaGodinaBaza(): TrecaGodinaBaza?
     private class PopuniDbAsycTask(db: KreiranjeBaze) :
         AsyncTask<Void?, Void?, Void?>() {
         private val prvaGodinaBaza: PrvaGodinaBaza = db.prvaGodinaBaza()!!
         private val drugaGodinaBaza: DrugaGodinaBaza = db.drugaGodinaBaza()!!
+        private val trecaGodinaBaza: TrecaGodinaBaza = db.trecaGodinaBaza()!!
         override fun doInBackground(vararg params: Void?): Void? {
              prvaGodinaBaza.insertPrvaGodina(
                 PrvaGodinaKolegiji(
@@ -59,7 +63,7 @@ abstract class KreiranjeBaze : RoomDatabase() {
                 DrugaGodinaKolegiji(
                     "Programiranje u Javi" ,
                     "Tomislav Galba" ,
-                    "6,5"
+                    "ECTS:6,5"
                 )
             )
 
@@ -67,7 +71,7 @@ abstract class KreiranjeBaze : RoomDatabase() {
                 DrugaGodinaKolegiji(
                     "Uvod u diskretnu matematiku" ,
                     "Tomislav Rudec" ,
-                    "5"
+                    "ECTS:5"
                 )
             )
 
@@ -75,7 +79,7 @@ abstract class KreiranjeBaze : RoomDatabase() {
                 DrugaGodinaKolegiji(
                     "Informacijski sustavi i računalne mreže" ,
                     "Anđelko Lišnjić" ,
-                    "7"
+                    "ECTS:7"
                 )
             )
 
@@ -83,7 +87,36 @@ abstract class KreiranjeBaze : RoomDatabase() {
                 DrugaGodinaKolegiji(
                     "Programiranje u Javi" ,
                     "Tomislav Galba" ,
-                    "6,5"
+                    "ECTS:6,5"
+                )
+            )
+
+            trecaGodinaBaza.insertTrecaGodina(
+                TrecaGodinaKolegiji(
+                    "Dizajn korisničkog sučelja",
+                    "Časlav Livada",
+                    "ECTS:5"
+                )
+            )
+            trecaGodinaBaza.insertTrecaGodina(
+                TrecaGodinaKolegiji(
+                    "Razvoj mobilnih aplikacija",
+                    "Krešimir Nenadić",
+                    "ECTS:5"
+                )
+            )
+            trecaGodinaBaza.insertTrecaGodina(
+                TrecaGodinaKolegiji(
+                    "Digitalne komunikacije",
+                    "Vanja Mandrić",
+                    "ECTS:7.5"
+                )
+            )
+            trecaGodinaBaza.insertTrecaGodina(
+                TrecaGodinaKolegiji(
+                    "Multimedijska tehnika",
+                    "Mario Vranješ",
+                    "ECTS:5"
                 )
             )
             return null
