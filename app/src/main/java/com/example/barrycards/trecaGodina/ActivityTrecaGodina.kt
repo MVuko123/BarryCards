@@ -14,9 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.barrycards.AddEditKolegiji
 import com.example.barrycards.R
-import com.example.barrycards.prvaGodina.ActivityPrvaGodina
-import com.example.barrycards.prvaGodina.PrvaGodinaAdapter
-import com.example.barrycards.prvaGodina.PrvaGodinaKolegiji
+import com.example.barrycards.multiMedijskaTehnikaPitanja.ActivityMultiMedija
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ActivityTrecaGodina : AppCompatActivity() {
@@ -74,22 +72,54 @@ class ActivityTrecaGodina : AppCompatActivity() {
                 }
             }).attachToRecyclerView(recyclerViewTreciKolegiji)
 
-            adapterTrecaGodina.setOnItemClickListener(object :
+            //OVO
+            /*adapterTrecaGodina.setOnItemClickListener(object :
             TrecaGodinaAdapter.OnItemClickListenerTreciKolegiji{
                 override fun onItemClickTreciKolegiji(trecaGodinaKolegiji: TrecaGodinaKolegiji) {
                     Log.d(TAG, "onItemClickTreciKolegiji: treciKolkegiji: $trecaGodinaKolegiji")
                     val intent = Intent(this@ActivityTrecaGodina, AddEditKolegiji::class.java)
-                    intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji?.id)
-                    intent.putExtra(AddEditKolegiji.EXTRA_NAZIV, trecaGodinaKolegiji?.naziv)
-                    intent.putExtra(AddEditKolegiji.EXTRA_NOSITELJ, trecaGodinaKolegiji?.nositelj)
-                    intent.putExtra(AddEditKolegiji.EXTRA_ECTS, trecaGodinaKolegiji?.ects)
+                    intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji.id)
+                    intent.putExtra(AddEditKolegiji.EXTRA_NAZIV, trecaGodinaKolegiji.naziv)
+                    intent.putExtra(AddEditKolegiji.EXTRA_NOSITELJ, trecaGodinaKolegiji.nositelj)
+                    intent.putExtra(AddEditKolegiji.EXTRA_ECTS, trecaGodinaKolegiji.ects)
                     startActivityForResult(intent, EDIT_TRECI_KOLEGIJI_REQUEST)
                 }
-            })
+            })*/
         }
+        adapterTrecaGodina.setOnItemClickListener(object :
+            TrecaGodinaAdapter.OnItemClickListenerTreciKolegiji{
+            override fun onItemClickTreciKolegiji(trecaGodinaKolegiji: TrecaGodinaKolegiji) {
+                Log.d(TAG, "onItemClickTreciKolegiji: treciKolkegiji: $trecaGodinaKolegiji")
+                if(trecaGodinaKolegiji.id == 1){
+                    val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja3::class.java)
+                    intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji.id)
+                    intent.putExtra("Uloga", uloga)
+                    startActivity(intent)
+                }else if(trecaGodinaKolegiji.id == 2){
+                    val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja3::class.java)
+                    intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji.id)
+                    intent.putExtra("Uloga", uloga)
+                    startActivity(intent)
+                }else if(trecaGodinaKolegiji.id == 3){
+                    val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja3::class.java)
+                    intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji.id)
+                    intent.putExtra("Uloga", uloga)
+                    startActivity(intent)
+                }else if(trecaGodinaKolegiji.id == 4){
+                    val intent = Intent(this@ActivityTrecaGodina, ActivityMultiMedija::class.java)
+                    intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji.id)
+                    intent.putExtra("Uloga", uloga)
+                    startActivity(intent)
+                }else{
+                    val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja3::class.java);
+                    startActivity(intent)
+                }
+            }
+        })
+
         //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         val actionbar = supportActionBar
-        actionbar!!.title="Prva Godina Kolegiji"
+        actionbar!!.title="Treca Godina Kolegiji"
         actionbar.setDisplayHomeAsUpEnabled(true)
     }
 
@@ -160,3 +190,6 @@ class ActivityTrecaGodina : AppCompatActivity() {
         private const val TAG = "ActivityTrecaGodina"
     }
     }
+
+
+

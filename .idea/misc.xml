@@ -10,15 +10,24 @@
         <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/drawable/ic_close.xml" value="0.1935" />
         <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/drawable/ic_edit.xml" value="0.1935" />
         <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/activity_a.xml" value="0.24818840579710144" />
+        <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/activity_add_edit_pitanja.xml" value="0.15443840579710144" />
+        <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/activity_add_kolegiji.xml" value="0.15443840579710144" />
         <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/activity_add_prva_godina_kolegiji.xml" value="0.264" />
         <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/activity_admin_prijava.xml" value="0.136" />
+        <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/activity_b.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/activity_bezveze.xml" value="0.24818840579710144" />
+        <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/activity_da.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/activity_druga_godina.xml" value="0.11200000000000002" />
         <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/activity_main.xml" value="0.10185185185185185" />
+        <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/activity_multi_medija.xml" value="0.2" />
         <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/activity_odabir.xml" value="0.4" />
         <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/activity_prva_godina.xml" value="0.1" />
         <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/activity_treca_godina.xml" value="0.1" />
         <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/druga_godina_item.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/prva_godina_item.xml" value="0.27710843373493976" />
+        <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/sva_pitanja_item.xml" value="0.264" />
+        <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/layout/sve_godine_item.xml" value="0.264" />
         <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/menu/add_kolegiji_menu.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/menu/add_prvi_kolegiji_menu.xml" value="0.2" />
         <entry key="..\:/Users/marin/Desktop/BarryCards/app/src/main/res/menu/delete_all_kolegij_menu.xml" value="0.24166666666666667" />

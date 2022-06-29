@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/delete_all_kolegiji"
-        android:title="Obriši sve kolegije"
+        android:title="Obriši sve"
         app:showAsAction="never" />
 
 </menu>

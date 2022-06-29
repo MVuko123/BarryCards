@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/view_pitanje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            android:text="Pitanje"
+            android:ellipsize="end"
+            android:maxLines="10"
+            android:maxWidth="300dp"/>
+
+        <TextView
+            android:id="@+id/view_odgovor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Odgovor"
+            android:maxWidth="300dp"
+            android:visibility="invisible"
+            android:ellipsize="end"
+            android:maxLines="10"/>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/button_okreni"
+            android:layout_width="67dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="-1dp"
+            android:layout_marginEnd="-14dp"
+            android:rotation="-90"
+            android:src="@drawable/ic_arrow_down" />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

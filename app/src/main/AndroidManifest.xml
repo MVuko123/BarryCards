@@ -10,13 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BarryCards">
         <activity
+            android:name=".multiMedijskaTehnikaPitanja.ActivityMultiMedija"
+            android:exported="false"
+            android:parentActivityName=".trecaGodina.ActivityTrecaGodina" />
+        <activity
+            android:name=".AddEditPitanja"
+            android:exported="false" />
+        <activity
+            android:name=".trecaGodina.NePostojecaPitanja3"
+            android:exported="false"
+            android:parentActivityName=".trecaGodina.ActivityTrecaGodina" />
+        <activity
             android:name=".trecaGodina.ActivityTrecaGodina"
             android:exported="false"
-            android:parentActivityName=".OdabirActivity"/>
+            android:parentActivityName=".OdabirActivity" />
         <activity
             android:name=".drugaGodina.ActivityDrugaGodina"
             android:exported="false"
-            android:parentActivityName=".OdabirActivity"/>
+            android:parentActivityName=".OdabirActivity" />
         <activity
             android:name=".AddEditKolegiji"
             android:exported="false"

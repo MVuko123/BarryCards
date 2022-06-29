@@ -86,7 +86,7 @@ class ActivityDrugaGodina : AppCompatActivity() {
         }
         //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         val actionbar = supportActionBar
-        actionbar!!.title="Prva Godina Kolegiji"
+        actionbar!!.title="Druga Godina Kolegiji"
         actionbar.setDisplayHomeAsUpEnabled(true)
     }
 

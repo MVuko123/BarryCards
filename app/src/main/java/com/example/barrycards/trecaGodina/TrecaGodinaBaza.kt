@@ -20,4 +20,5 @@ interface TrecaGodinaBaza {
 
     @Query("DELETE FROM TrecaGodinaKolegiji")
     fun deleteAllTrecaGodinaKolegiji()
+
 }
