@@ -35,19 +35,19 @@ class OdabirActivity : AppCompatActivity(){
 
        val prvaGodina = findViewById<Button>(R.id.buttonPrvaGodina)
         prvaGodina.setOnClickListener{
-            val Intent = Intent(this, ActivityPrvaGodina::class.java)
+            val Intent = Intent(this, ActivityPrvaGodina::class.java).putExtra("Uloga", uloga)
             startActivity(Intent)
         }
 
         val drugaGodina = findViewById<Button>(R.id.buttonDrugaGodina)
         drugaGodina.setOnClickListener{
-            val Intent = Intent(this, ActivityDrugaGodina::class.java)
+            val Intent = Intent(this, ActivityDrugaGodina::class.java).putExtra("Uloga", uloga)
             startActivity(Intent)
         }
 
         val trecaGodina = findViewById<Button>(R.id.buttonTrecaGodina)
         trecaGodina.setOnClickListener{
-            val Intent = Intent(this, ActivityTrecaGodina::class.java)
+            val Intent = Intent(this, ActivityTrecaGodina::class.java).putExtra("Uloga", uloga)
             startActivity(Intent)
         }
 

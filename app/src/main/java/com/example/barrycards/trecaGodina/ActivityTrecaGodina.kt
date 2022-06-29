@@ -28,17 +28,17 @@ class ActivityTrecaGodina : AppCompatActivity() {
         val buttonDodajKolegiji = findViewById<FloatingActionButton>(R.id.button_add_kolegiji)
 
 
-        //val uloga = intent.getStringExtra("Uloga")
+        val uloga = intent.getStringExtra("Uloga")
 
-        //if ("Admin" == uloga || "Superuser" == uloga) {
+        if ("Admin" == uloga ) {
         buttonDodajKolegiji.visibility = View.VISIBLE
         buttonDodajKolegiji.setOnClickListener {
             val intent = Intent(this@ActivityTrecaGodina, AddEditKolegiji::class.java)
             startActivityForResult(intent, ADD_TRECI_KOLEGIJI_REQUEST)
         }
-        /*} else {
-            buttonDodajZadatak.visibility = View.GONE
-        }*/
+        } else {
+            buttonDodajKolegiji.visibility = View.GONE
+        }
 
 
 
@@ -54,39 +54,39 @@ class ActivityTrecaGodina : AppCompatActivity() {
         ) { treciKolegiji -> adapterTrecaGodina.setTreciKolegijiList(treciKolegiji as List<TrecaGodinaKolegiji>) }
 
 
-        // if ("Admin" == uloga) {
-        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
-            0,
-            ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
-        ) {
-            override fun onMove(
-                recyclerView: RecyclerView,
-                viewHolder: RecyclerView.ViewHolder,
-                target: RecyclerView.ViewHolder,
-            ): Boolean {
-                return false
-            }
+        if ("Admin" == uloga) {
+            ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
+                0,
+                ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+            ) {
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder,
+                ): Boolean {
+                    return false
+                }
 
-            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                trecaGodinaViewModel?.delete(adapterTrecaGodina.getTreciKolegijiAt(viewHolder.adapterPosition))
-                Toast.makeText(this@ActivityTrecaGodina, "Kolegiji obrisan", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        }).attachToRecyclerView(recyclerViewTreciKolegiji)
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    trecaGodinaViewModel?.delete(adapterTrecaGodina.getTreciKolegijiAt(viewHolder.adapterPosition))
+                    Toast.makeText(this@ActivityTrecaGodina, "Kolegiji obrisan", Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }).attachToRecyclerView(recyclerViewTreciKolegiji)
 
-        adapterTrecaGodina.setOnItemClickListener(object :
-        TrecaGodinaAdapter.OnItemClickListenerTreciKolegiji{
-            override fun onItemClickTreciKolegiji(trecaGodinaKolegiji: TrecaGodinaKolegiji) {
-                Log.d(TAG, "onItemClickTreciKolegiji: treciKolkegiji: $trecaGodinaKolegiji")
-                val intent = Intent(this@ActivityTrecaGodina, AddEditKolegiji::class.java)
-                intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji?.id)
-                intent.putExtra(AddEditKolegiji.EXTRA_NAZIV, trecaGodinaKolegiji?.naziv)
-                intent.putExtra(AddEditKolegiji.EXTRA_NOSITELJ, trecaGodinaKolegiji?.nositelj)
-                intent.putExtra(AddEditKolegiji.EXTRA_ECTS, trecaGodinaKolegiji?.ects)
-                startActivityForResult(intent, ActivityTrecaGodina.EDIT_TRECI_KOLEGIJI_REQUEST)
-            }
-        })
-        //}
+            adapterTrecaGodina.setOnItemClickListener(object :
+            TrecaGodinaAdapter.OnItemClickListenerTreciKolegiji{
+                override fun onItemClickTreciKolegiji(trecaGodinaKolegiji: TrecaGodinaKolegiji) {
+                    Log.d(TAG, "onItemClickTreciKolegiji: treciKolkegiji: $trecaGodinaKolegiji")
+                    val intent = Intent(this@ActivityTrecaGodina, AddEditKolegiji::class.java)
+                    intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji?.id)
+                    intent.putExtra(AddEditKolegiji.EXTRA_NAZIV, trecaGodinaKolegiji?.naziv)
+                    intent.putExtra(AddEditKolegiji.EXTRA_NOSITELJ, trecaGodinaKolegiji?.nositelj)
+                    intent.putExtra(AddEditKolegiji.EXTRA_ECTS, trecaGodinaKolegiji?.ects)
+                    startActivityForResult(intent, EDIT_TRECI_KOLEGIJI_REQUEST)
+                }
+            })
+        }
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
@@ -119,19 +119,19 @@ class ActivityTrecaGodina : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        //val uloga = intent.getStringExtra("Uloga")
-        //return if ("Admin" == uloga) {
+        val uloga = intent.getStringExtra("Uloga")
+        return if ("Admin" == uloga) {
         val menuInflater = menuInflater
         menuInflater.inflate(R.menu.delete_all_kolegij_menu, menu)
         return true
-        //} else {
-        //    false
-        //}
+        } else {
+            false
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //val uloga = intent.getStringExtra("Uloga")
-        //return if ("Admin" == uloga) {
+        val uloga = intent.getStringExtra("Uloga")
+        return if ("Admin" == uloga) {
         return when (item.itemId) {
             R.id.delete_all_kolegiji -> {
                 trecaGodinaViewModel?.deleteAll()
@@ -140,9 +140,9 @@ class ActivityTrecaGodina : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
-        //} else {
-        //    false
-        //}
+        } else {
+            false
+        }
     }
 
     companion object {

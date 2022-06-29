@@ -26,17 +26,17 @@ class ActivityPrvaGodina : AppCompatActivity() {
         val buttonDodajKolegiji = findViewById<FloatingActionButton>(R.id.button_add_kolegiji)
 
 
-        //val uloga = intent.getStringExtra("Uloga")
+        val uloga = intent.getStringExtra("Uloga")
 
-        //if ("Admin" == uloga || "Superuser" == uloga) {
+        if ("Admin" == uloga) {
             buttonDodajKolegiji.visibility = View.VISIBLE
             buttonDodajKolegiji.setOnClickListener {
                 val intent = Intent(this@ActivityPrvaGodina, AddEditKolegiji::class.java)
                 startActivityForResult(intent, ADD_PRVI_KOLEGIJI_REQUEST)
             }
-        /*} else {
-            buttonDodajZadatak.visibility = View.GONE
-        }*/
+        } else {
+            buttonDodajKolegiji.visibility = View.GONE
+        }
 
 
 
@@ -52,7 +52,7 @@ class ActivityPrvaGodina : AppCompatActivity() {
         ) { prviKolegiji -> adapterPrvaGodina.setPrviKolegijiList(prviKolegiji as List<PrvaGodinaKolegiji>) }
 
 
-        // if ("Admin" == uloga) {
+        if ("Admin" == uloga) {
            ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
                 0,
                 ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
@@ -85,7 +85,7 @@ class ActivityPrvaGodina : AppCompatActivity() {
 
                 }
             })
-        //}
+        }
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
@@ -118,19 +118,19 @@ class ActivityPrvaGodina : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        //val uloga = intent.getStringExtra("Uloga")
-        //return if ("Admin" == uloga) {
+        val uloga = intent.getStringExtra("Uloga")
+        return if ("Admin" == uloga) {
             val menuInflater = menuInflater
             menuInflater.inflate(R.menu.delete_all_kolegij_menu, menu)
             return true
-        //} else {
-        //    false
-        //}
+        } else {
+            false
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        //val uloga = intent.getStringExtra("Uloga")
-        //return if ("Admin" == uloga) {
+        val uloga = intent.getStringExtra("Uloga")
+        return if ("Admin" == uloga) {
         return when (item.itemId) {
             R.id.delete_all_kolegiji -> {
                 prvaGodinaViewModel?.deleteAll()
@@ -139,9 +139,9 @@ class ActivityPrvaGodina : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
-        //} else {
-        //    false
-        //}
+        } else {
+            false
+        }
     }
 
     companion object {
