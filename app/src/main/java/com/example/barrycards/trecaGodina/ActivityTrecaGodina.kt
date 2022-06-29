@@ -87,7 +87,16 @@ class ActivityTrecaGodina : AppCompatActivity() {
                 }
             })
         }
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        val actionbar = supportActionBar
+        actionbar!!.title="Prva Godina Kolegiji"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        val uloga = intent.getStringExtra("Uloga")
+        return uloga.toBoolean()
     }
 
 
