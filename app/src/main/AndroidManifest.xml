@@ -26,7 +26,7 @@
             android:exported="false"
             android:parentActivityName=".OdabirActivity" />
         <activity
-            android:name=".AdminPrijava"
+            android:name=".admin.AdminPrijava"
             android:exported="false"
             android:parentActivityName=".OdabirActivity" />
         <activity
