@@ -148,7 +148,7 @@ class ActivityMultiMedija : AppCompatActivity() {
             return when (item.itemId) {
                 R.id.delete_all_kolegiji -> {
                     multiMedijaViewModel?.deleteAll()
-                    Toast.makeText(this, "Svi kolegiji obrisani", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Sva pitanja obrisana", Toast.LENGTH_SHORT).show()
                     true
                 }
                 else -> super.onOptionsItemSelected(item)
@@ -164,7 +164,7 @@ class ActivityMultiMedija : AppCompatActivity() {
         private const val TAG = "ActivityMultiMedija"
     }
 
-    fun okreni(){
+    /*fun okreni(){
         setContentView(R.layout.sva_pitanja_item)
 
         val buttonOkreni = findViewById<AppCompatImageButton>(R.id.button_okreni)
@@ -184,5 +184,5 @@ class ActivityMultiMedija : AppCompatActivity() {
                 odgovor.visibility = View.VISIBLE
             }
         }
-    }
+    }*/
     }

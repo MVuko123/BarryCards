@@ -36,7 +36,7 @@
             android:layout_below="@id/text_view_nositelj"
             android:text="1" />
 
-        <!-- <androidx.appcompat.widget.AppCompatImageButton
+       <!-- <androidx.appcompat.widget.AppCompatImageButton
             android:layout_width="67dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"

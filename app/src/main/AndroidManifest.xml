@@ -10,15 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BarryCards">
         <activity
+            android:name=".programiranje1Pitanja.ActivityProgramiranje1"
+            android:exported="false"
+            android:parentActivityName=".prvaGodina.ActivityPrvaGodina" />
+        <activity
             android:name=".multiMedijskaTehnikaPitanja.ActivityMultiMedija"
             android:exported="false"
             android:parentActivityName=".trecaGodina.ActivityTrecaGodina" />
         <activity
             android:name=".AddEditPitanja"
             android:exported="false"
-            android:parentActivityName=".multiMedijskaTehnikaPitanja.ActivityMultiMedija"/>
+            android:parentActivityName=".multiMedijskaTehnikaPitanja.ActivityMultiMedija" />
         <activity
-            android:name=".trecaGodina.NePostojecaPitanja3"
+            android:name=".NePostojecaPitanja"
             android:exported="false"
             android:parentActivityName=".trecaGodina.ActivityTrecaGodina" />
         <activity

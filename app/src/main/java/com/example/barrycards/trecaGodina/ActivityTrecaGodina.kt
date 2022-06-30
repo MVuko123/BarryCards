@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.barrycards.AddEditKolegiji
+import com.example.barrycards.NePostojecaPitanja
 import com.example.barrycards.R
 import com.example.barrycards.multiMedijskaTehnikaPitanja.ActivityMultiMedija
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -90,30 +91,32 @@ class ActivityTrecaGodina : AppCompatActivity() {
             TrecaGodinaAdapter.OnItemClickListenerTreciKolegiji{
             override fun onItemClickTreciKolegiji(trecaGodinaKolegiji: TrecaGodinaKolegiji) {
                 Log.d(TAG, "onItemClickTreciKolegiji: treciKolkegiji: $trecaGodinaKolegiji")
-                if(trecaGodinaKolegiji.id == 1){
-                    val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja3::class.java)
+
+                 if (trecaGodinaKolegiji.id == 1) {
+                    val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja::class.java)
                     intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji.id)
                     intent.putExtra("Uloga", uloga)
                     startActivity(intent)
-                }else if(trecaGodinaKolegiji.id == 2){
-                    val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja3::class.java)
+                } else if (trecaGodinaKolegiji.id == 2) {
+                    val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja::class.java)
                     intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji.id)
                     intent.putExtra("Uloga", uloga)
                     startActivity(intent)
-                }else if(trecaGodinaKolegiji.id == 3){
-                    val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja3::class.java)
+                } else if (trecaGodinaKolegiji.id == 3) {
+                    val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja::class.java)
                     intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji.id)
                     intent.putExtra("Uloga", uloga)
                     startActivity(intent)
-                }else if(trecaGodinaKolegiji.id == 4){
+                } else if (trecaGodinaKolegiji.id == 4) {
                     val intent = Intent(this@ActivityTrecaGodina, ActivityMultiMedija::class.java)
                     intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji.id)
                     intent.putExtra("Uloga", uloga)
                     startActivity(intent)
-                }else{
-                    val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja3::class.java);
+                } else {
+                    val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja::class.java);
                     startActivity(intent)
                 }
+
             }
         })
 
@@ -183,6 +186,34 @@ class ActivityTrecaGodina : AppCompatActivity() {
             false
         }
     }
+
+    /*fun dalje(trecaGodinaKolegiji: TrecaGodinaKolegiji?) {
+        val uloga = intent.getStringExtra("Uloga")
+        if (trecaGodinaKolegiji?.id == 1) {
+            val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja3::class.java)
+            intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji.id)
+            intent.putExtra("Uloga", uloga)
+            startActivity(intent)
+        } else if (trecaGodinaKolegiji?.id == 2) {
+            val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja3::class.java)
+            intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji.id)
+            intent.putExtra("Uloga", uloga)
+            startActivity(intent)
+        } else if (trecaGodinaKolegiji?.id == 3) {
+            val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja3::class.java)
+            intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji.id)
+            intent.putExtra("Uloga", uloga)
+            startActivity(intent)
+        } else if (trecaGodinaKolegiji?.id == 4) {
+            val intent = Intent(this@ActivityTrecaGodina, ActivityMultiMedija::class.java)
+            intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, trecaGodinaKolegiji.id)
+            intent.putExtra("Uloga", uloga)
+            startActivity(intent)
+        } else {
+            val intent = Intent(this@ActivityTrecaGodina, NePostojecaPitanja3::class.java);
+            startActivity(intent)
+        }
+    }*/
 
     companion object {
         const val ADD_TRECI_KOLEGIJI_REQUEST = 1
