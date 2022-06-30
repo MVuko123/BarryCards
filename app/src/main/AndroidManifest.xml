@@ -15,7 +15,8 @@
             android:parentActivityName=".trecaGodina.ActivityTrecaGodina" />
         <activity
             android:name=".AddEditPitanja"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".multiMedijskaTehnikaPitanja.ActivityMultiMedija"/>
         <activity
             android:name=".trecaGodina.NePostojecaPitanja3"
             android:exported="false"

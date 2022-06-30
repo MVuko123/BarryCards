@@ -3,8 +3,11 @@ package com.example.barrycards.multiMedijskaTehnikaPitanja
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.sva_pitanja_item.view.*
 
 class MultiMedijaAdapter : RecyclerView.Adapter<MultiMedijaAdapter.MultiMedijaHolder>() {
 
@@ -21,6 +24,20 @@ class MultiMedijaAdapter : RecyclerView.Adapter<MultiMedijaAdapter.MultiMedijaHo
         val trentnaPitanja: MultiMedijskaPitanja = multiMedijskaPitanja[position]
         holder.textViewPitanje.text = trentnaPitanja.pitanje
         holder.textViewOdgovor.text = trentnaPitanja.odgovor
+        holder.buttonOkreni?.setOnClickListener{
+                if(holder.textViewPitanje.visibility == View.VISIBLE){
+                    holder.textViewPitanje.visibility = View.INVISIBLE
+                }else if(holder.textViewPitanje.visibility == View.INVISIBLE){
+                    holder.textViewPitanje.visibility = View.VISIBLE
+                }
+
+            if(holder.textViewOdgovor.visibility == View.VISIBLE){
+                holder.textViewOdgovor.visibility = View.INVISIBLE
+            }else if(holder.textViewOdgovor.visibility == View.INVISIBLE){
+                holder.textViewOdgovor.visibility = View.VISIBLE
+            }
+
+        }
     }
 
     override fun getItemCount(): Int {
@@ -39,10 +56,14 @@ class MultiMedijaAdapter : RecyclerView.Adapter<MultiMedijaAdapter.MultiMedijaHo
     inner class MultiMedijaHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textViewPitanje: TextView
         val textViewOdgovor: TextView
+        var buttonOkreni: AppCompatImageButton? = null
+
+
 
         init {
             textViewPitanje = itemView.findViewById(com.example.barrycards.R.id.view_pitanje)
             textViewOdgovor = itemView.findViewById(com.example.barrycards.R.id.view_odgovor)
+            buttonOkreni = itemView.findViewById(com.example.barrycards.R.id.button_okreni)
             itemView.setOnClickListener {
                 val position = adapterPosition
                 if (listener != null && position != RecyclerView.NO_POSITION) //NO_POSITION je uvijek -1

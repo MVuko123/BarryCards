@@ -16,7 +16,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.barrycards.AddEditPitanja
 import com.example.barrycards.R
-import com.example.barrycards.trecaGodina.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
@@ -24,21 +23,21 @@ class ActivityMultiMedija : AppCompatActivity() {
     private var multiMedijaViewModel: MultiMedijskaViewModel? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_multi_medija)
-        
 
-        val buttonDodajKolegiji = findViewById<FloatingActionButton>(R.id.button_add_pitanje)
+        setContentView(R.layout.activity_multi_medija)
 
         val uloga = intent.getStringExtra("Uloga")
 
+        val buttonDodajPitanje = findViewById<FloatingActionButton>(R.id.button_add_pitanje)
+
         if ("Admin" == uloga ) {
-            buttonDodajKolegiji.visibility = View.VISIBLE
-            buttonDodajKolegiji.setOnClickListener {
+            buttonDodajPitanje.visibility = View.VISIBLE
+            buttonDodajPitanje.setOnClickListener {
                 val intent = Intent(this@ActivityMultiMedija, AddEditPitanja::class.java)
                 startActivityForResult(intent, ADD_MULTI_PITANJA_REQUEST)
             }
         } else {
-            buttonDodajKolegiji.visibility = View.GONE
+            buttonDodajPitanje.visibility = View.GONE
         }
 
 
@@ -48,6 +47,8 @@ class ActivityMultiMedija : AppCompatActivity() {
 
         val adapterMultiMedija = MultiMedijaAdapter()
         recyclerViewMultiMedija.adapter = adapterMultiMedija
+
+
 
         multiMedijaViewModel = ViewModelProvider(this, TvornicaMMViewModela(application))[MultiMedijskaViewModel::class.java]
         multiMedijaViewModel!!.getSvaMMPitanja().observe(this

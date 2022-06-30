@@ -140,6 +140,12 @@ abstract class KreiranjeBaze : RoomDatabase() {
                     "GIF",
                 )
             )
+            multiMedijskaBaza.insertMultiMedija(
+                MultiMedijskaPitanja(
+                    "Ti si šta?",
+                    "Idiot",
+                )
+            )
             return null
         }
 
