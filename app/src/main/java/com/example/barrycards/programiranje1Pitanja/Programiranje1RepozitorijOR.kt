@@ -9,7 +9,7 @@ class Programiranje1RepozitorijOR(
 ) : Programiranje1Repozitorij(application, programiranje1Baza) {
     override val programiranje1List: LiveData<List<Programiranje1Pitanja>>
     get(){
-        return this.getProgramiranje1ist
+        return this.getProgramiranje1List
     }
 
 }

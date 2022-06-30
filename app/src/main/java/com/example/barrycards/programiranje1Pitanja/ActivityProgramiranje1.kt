@@ -161,7 +161,7 @@ class ActivityProgramiranje1 : AppCompatActivity() {
     companion object {
         const val ADD_MULTI_PITANJA_REQUEST = 1
         const val EDIT_MULTI_PITANJA_REQUEST = 2
-        private const val TAG = "ActivityMultiMedija"
+        private const val TAG = "ActivityProgramiranje1"
     }
 
     /*fun okreni(){

@@ -13,7 +13,13 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.barrycards.AddEditKolegiji
+import com.example.barrycards.NePostojecaPitanja
 import com.example.barrycards.R
+import com.example.barrycards.javaPitanja.ActivityJava
+import com.example.barrycards.programiranje1Pitanja.ActivityProgramiranje1
+import com.example.barrycards.prvaGodina.ActivityPrvaGodina
+import com.example.barrycards.prvaGodina.PrvaGodinaAdapter
+import com.example.barrycards.prvaGodina.PrvaGodinaKolegiji
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ActivityDrugaGodina : AppCompatActivity() {
@@ -70,7 +76,7 @@ class ActivityDrugaGodina : AppCompatActivity() {
             }
         }).attachToRecyclerView(recyclerViewDrugiKolegiji)
 
-        adapterDrugaGodina.setOnItemClickListener(object :
+        /*adapterDrugaGodina.setOnItemClickListener(object :
             DrugaGodinaAdapter.OnItemClickListenerDrugiKolegiji {
             override fun onItemClickDrugiKolegiji(drugaGodinaKolegiji: DrugaGodinaKolegiji?) {
                 Log.d(TAG, "onItemClickPrviKolegiji: prviKolkegiji: $drugaGodinaKolegiji")
@@ -82,8 +88,40 @@ class ActivityDrugaGodina : AppCompatActivity() {
                 startActivityForResult(intent, EDIT_DRUGI_KOLEGIJI_REQUEST)
 
             }
-        })
+        })*/
         }
+
+        adapterDrugaGodina.setOnItemClickListener(object :
+            DrugaGodinaAdapter.OnItemClickListenerDrugiKolegiji{
+            override fun onItemClickDrugiKolegiji(drugaGodinaKolegiji: DrugaGodinaKolegiji?) {
+                Log.d(TAG, "onItemClickDrugiKolegiji: drugiKolegiji: $drugaGodinaKolegiji")
+
+                if (drugaGodinaKolegiji?.id == 1) {
+                    val intent = Intent(this@ActivityDrugaGodina, ActivityJava::class.java)
+                    intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, drugaGodinaKolegiji.id)
+                    intent.putExtra("Uloga", uloga)
+                    startActivity(intent)
+                } else if (drugaGodinaKolegiji?.id == 2) {
+                    val intent = Intent(this@ActivityDrugaGodina, NePostojecaPitanja::class.java)
+                    intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, drugaGodinaKolegiji.id)
+                    intent.putExtra("Uloga", uloga)
+                    startActivity(intent)
+                } else if (drugaGodinaKolegiji?.id == 3) {
+                    val intent = Intent(this@ActivityDrugaGodina, NePostojecaPitanja::class.java)
+                    intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, drugaGodinaKolegiji.id)
+                    intent.putExtra("Uloga", uloga)
+                    startActivity(intent)
+                } else if (drugaGodinaKolegiji?.id == 4) {
+                    val intent = Intent(this@ActivityDrugaGodina, NePostojecaPitanja::class.java)
+                    intent.putExtra(AddEditKolegiji.EXTRA_ID_PRVI_KOLEGIJI, drugaGodinaKolegiji.id)
+                    intent.putExtra("Uloga", uloga)
+                    startActivity(intent)
+                } else {
+                    val intent = Intent(this@ActivityDrugaGodina, NePostojecaPitanja::class.java);
+                    startActivity(intent)
+                }
+            }
+        })
         //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         val actionbar = supportActionBar
         actionbar!!.title="Druga Godina Kolegiji"

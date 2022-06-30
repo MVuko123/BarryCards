@@ -10,14 +10,14 @@ interface Programiranje1Baza {
     val programiranje1List: LiveData<List<Programiranje1Pitanja>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertProgramiranje1(multiMedija: Programiranje1Pitanja?)
+    fun insertProgramiranje1(programiranje1Pitanja: Programiranje1Pitanja?)
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun updateProgramiranje1(multiMedija: Programiranje1Pitanja?)
+    fun updateProgramiranje1(programiranje1Pitanja: Programiranje1Pitanja?)
 
     @Delete
-    fun deleteProgramiranje1(multiMedija: Programiranje1Pitanja?)
+    fun deleteProgramiranje1(programiranje1Pitanja: Programiranje1Pitanja?)
 
-    @Query("DELETE FROM Multimedija")
+    @Query("DELETE FROM Programiranje1")
     fun deleteAllProgramiranje1()
 }

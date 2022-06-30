@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BarryCards">
         <activity
+            android:name=".javaPitanja.ActivityJava"
+            android:exported="false"
+            android:parentActivityName=".drugaGodina.ActivityDrugaGodina"/>
+        <activity
             android:name=".programiranje1Pitanja.ActivityProgramiranje1"
             android:exported="false"
             android:parentActivityName=".prvaGodina.ActivityPrvaGodina" />

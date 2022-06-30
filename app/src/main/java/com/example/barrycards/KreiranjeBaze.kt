@@ -10,6 +10,8 @@ import com.example.barrycards.admin.Admin
 import com.example.barrycards.admin.AdminBaza
 import com.example.barrycards.drugaGodina.DrugaGodinaBaza
 import com.example.barrycards.drugaGodina.DrugaGodinaKolegiji
+import com.example.barrycards.javaPitanja.JavaBaza
+import com.example.barrycards.javaPitanja.JavaPitanja
 import com.example.barrycards.multiMedijskaTehnikaPitanja.MultiMedijskaBaza
 import com.example.barrycards.multiMedijskaTehnikaPitanja.MultiMedijskaPitanja
 import com.example.barrycards.programiranje1Pitanja.Programiranje1Baza
@@ -21,7 +23,7 @@ import com.example.barrycards.trecaGodina.TrecaGodinaKolegiji
 
 
 @Database(
-    entities = [PrvaGodinaKolegiji::class, DrugaGodinaKolegiji::class, TrecaGodinaKolegiji::class, Admin::class, MultiMedijskaPitanja::class, Programiranje1Pitanja::class],
+    entities = [PrvaGodinaKolegiji::class, DrugaGodinaKolegiji::class, TrecaGodinaKolegiji::class, Admin::class, MultiMedijskaPitanja::class, Programiranje1Pitanja::class, JavaPitanja::class],
     exportSchema = false,
     version = 1
 )
@@ -33,6 +35,7 @@ abstract class KreiranjeBaze : RoomDatabase() {
     abstract fun adminBaza(): AdminBaza?
     abstract fun multiMedijskaBaza(): MultiMedijskaBaza?
     abstract fun programiranje1Baza(): Programiranje1Baza?
+    abstract fun javaBaza(): JavaBaza?
 
     private class PopuniDbAsycTask(db: KreiranjeBaze) :
         AsyncTask<Void?, Void?, Void?>() {
@@ -42,6 +45,7 @@ abstract class KreiranjeBaze : RoomDatabase() {
         private val adminBaza: AdminBaza = db.adminBaza()!!
         private val multiMedijskaBaza: MultiMedijskaBaza = db.multiMedijskaBaza()!!
         private val programiranje1Baza: Programiranje1Baza = db.programiranje1Baza()!!
+        private val javaBaza: JavaBaza = db.javaBaza()!!
         override fun doInBackground(vararg params: Void?): Void? {
              prvaGodinaBaza.insertPrvaGodina(
                 PrvaGodinaKolegiji(
@@ -98,9 +102,9 @@ abstract class KreiranjeBaze : RoomDatabase() {
 
             drugaGodinaBaza.insertDrugaGodina(
                 DrugaGodinaKolegiji(
-                    "Programiranje u Javi" ,
-                    "Tomislav Galba" ,
-                    "ECTS:6,5"
+                    "Digitalna elektornika" ,
+                    "Marijan Herceg" ,
+                    "ECTS:6"
                 )
             )
 
@@ -155,6 +159,12 @@ abstract class KreiranjeBaze : RoomDatabase() {
                 Programiranje1Pitanja(
                     "Robert?",
                     "Šojo",
+                )
+            )
+            javaBaza.insertJava(
+                JavaPitanja(
+                    "Da?",
+                    "Ne",
                 )
             )
             return null

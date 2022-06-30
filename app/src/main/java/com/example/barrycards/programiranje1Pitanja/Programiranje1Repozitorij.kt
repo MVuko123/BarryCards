@@ -4,14 +4,12 @@ import android.app.Application
 import android.os.AsyncTask
 import androidx.lifecycle.LiveData
 import com.example.barrycards.KreiranjeBaze
-import com.example.barrycards.multiMedijskaTehnikaPitanja.MultiMedijskaBaza
-import com.example.barrycards.multiMedijskaTehnikaPitanja.MultiMedijskaPitanja
 
 abstract class Programiranje1Repozitorij(
     application: Application,
     private var programiranje1Baza: Programiranje1Baza
 ) {
-    var getProgramiranje1ist: LiveData<List<Programiranje1Pitanja>>
+    var getProgramiranje1List: LiveData<List<Programiranje1Pitanja>>
         get() {
             return field
         }
@@ -79,7 +77,7 @@ abstract class Programiranje1Repozitorij(
     init {
         val baza: KreiranjeBaze = KreiranjeBaze.getInstance(application)
         programiranje1Baza = baza.programiranje1Baza()!!
-        getProgramiranje1ist = programiranje1Baza.programiranje1List
+        getProgramiranje1List = programiranje1Baza.programiranje1List
     }
 
 }
