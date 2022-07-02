@@ -1,23 +1,19 @@
 package com.example.barrycards.programiranje1Pitanja
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.barrycards.AddEditPitanja
 import com.example.barrycards.R
-import com.example.barrycards.multiMedijskaTehnikaPitanja.MultiMedijaAdapter
-import com.example.barrycards.multiMedijskaTehnikaPitanja.MultiMedijskaPitanja
-import com.example.barrycards.multiMedijskaTehnikaPitanja.MultiMedijskaViewModel
-import com.example.barrycards.multiMedijskaTehnikaPitanja.TvornicaMMViewModela
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ActivityProgramiranje1 : AppCompatActivity() {
@@ -95,9 +91,8 @@ class ActivityProgramiranje1 : AppCompatActivity() {
         actionbar!!.title="Programiranje 1 Pitanja"
         actionbar.setDisplayHomeAsUpEnabled(true)
 
-
-
     }
+
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

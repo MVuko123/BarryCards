@@ -10,7 +10,16 @@ class NePostojecaPitanja : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ne_postojeca_pitanja)
 
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        val actionbar = supportActionBar
+        actionbar!!.title="Programiranje 1 Pitanja"
+        actionbar.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        val uloga = intent.getStringExtra("Uloga")
+        return uloga.toBoolean()
     }
 }
 

@@ -7,7 +7,7 @@ import com.example.barrycards.KreiranjeBaze
 
 abstract class Programiranje1Repozitorij(
     application: Application,
-    private var programiranje1Baza: Programiranje1Baza
+    private var programiranje1Baza: Programiranje1Baza,
 ) {
     var getProgramiranje1List: LiveData<List<Programiranje1Pitanja>>
         get() {
@@ -45,13 +45,18 @@ abstract class Programiranje1Repozitorij(
 
     private class UpdateProgramiranje1AyncTask(programiranje1Baza: Programiranje1Baza) :
         AsyncTask<Programiranje1Pitanja?, Void?, Void?>() {
-        private val programiranje1Baza: Programiranje1Baza = programiranje1Baza
+        private val programiranje1Baza: Programiranje1Baza
 
         override fun doInBackground(vararg params: Programiranje1Pitanja?): Void? {
             programiranje1Baza.updateProgramiranje1(params[0])
             return null
         }
+
+        init{
+            this.programiranje1Baza = programiranje1Baza
+        }
     }
+
 
     private class DeleteProgramiranje1AyncTask(programiranje1Baza: Programiranje1Baza) :
         AsyncTask<Programiranje1Pitanja?, Void?, Void?>() {

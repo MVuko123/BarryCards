@@ -2,7 +2,6 @@ package com.example.barrycards.programiranje1Pitanja
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.barrycards.multiMedijskaTehnikaPitanja.MultiMedijskaPitanja
 
 @Dao
 interface Programiranje1Baza {
@@ -12,7 +11,7 @@ interface Programiranje1Baza {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertProgramiranje1(programiranje1Pitanja: Programiranje1Pitanja?)
 
-    @Update(onConflict = OnConflictStrategy.REPLACE)
+    @Update
     fun updateProgramiranje1(programiranje1Pitanja: Programiranje1Pitanja?)
 
     @Delete

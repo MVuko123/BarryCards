@@ -29,7 +29,7 @@ class AddEditKolegiji : AppCompatActivity() {
         } else {
             title = "Dodajte kolegiji"
         }
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
     }
 
     private fun savePrviKolegiji() {

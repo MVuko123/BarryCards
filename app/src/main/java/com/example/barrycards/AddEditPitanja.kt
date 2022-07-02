@@ -21,13 +21,23 @@ class AddEditPitanja : AppCompatActivity() {
 
         val intent = intent
         if(intent.hasExtra(EXTRA_ID_PRVA_PITANJA)){
-            title="Uredite pitanje"
+            val actionbar = supportActionBar
+            actionbar!!.title="Uredite Pitanje"
+            actionbar.setDisplayHomeAsUpEnabled(true)
             with(editPitanje){this?.setText(intent.getStringExtra(EXTRA_PITANJE))}
             with(editOdgovor){this?.setText(intent.getStringExtra(EXTRA_ODGOVOR))}
         }else{
-            title="Dodajte pitanje"
+            val actionbar = supportActionBar
+            actionbar!!.title="Dodajte Pitanje"
+            actionbar.setDisplayHomeAsUpEnabled(true)
         }
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        val uloga = intent.getStringExtra("Uloga")
+        return uloga.toBoolean()
     }
 
     private fun savePitanje() {

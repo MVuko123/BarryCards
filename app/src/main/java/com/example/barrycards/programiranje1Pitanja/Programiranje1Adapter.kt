@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatImageButton
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 
 class Programiranje1Adapter : RecyclerView.Adapter<Programiranje1Adapter.Programiranje1Holder>() {
