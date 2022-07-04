@@ -12,7 +12,7 @@ class NePostojecaPitanja : AppCompatActivity() {
 
         //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         val actionbar = supportActionBar
-        actionbar!!.title="Programiranje 1 Pitanja"
+        actionbar!!.title="Pitanja u izradi"
         actionbar.setDisplayHomeAsUpEnabled(true)
     }
 

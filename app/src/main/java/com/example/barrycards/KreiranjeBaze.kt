@@ -145,26 +145,38 @@ abstract class KreiranjeBaze : RoomDatabase() {
             )
             multiMedijskaBaza.insertMultiMedija(
                 MultiMedijskaPitanja(
-                    "Kaki se zove pokretna slika koja se konstatno vrti?",
+                    "Kaki se zove pokretna slika bez zvuka koja se konstatno vrti?",
                     "GIF",
                 )
             )
             multiMedijskaBaza.insertMultiMedija(
                 MultiMedijskaPitanja(
-                    "Ti si šta?",
-                    "Idiot",
+                    "Što je hipertekst?",
+                    "To je kada u teksu imamo link na drugi tekst.",
                 )
             )
             programiranje1Baza.insertProgramiranje1(
                 Programiranje1Pitanja(
-                    "Robert?",
-                    "Šojo",
+                    "Tko se smatra ocem teoretičke računarske znanosti i umjetne inteligencije?",
+                    "Alan Turing",
+                )
+            )
+            programiranje1Baza.insertProgramiranje1(
+                Programiranje1Pitanja(
+                    "Koje je ime prvog računala konstruiranog u Americi i što znači?",
+                    "ENIAC - Electronic Numerical Integrator And Computer",
                 )
             )
             javaBaza.insertJava(
                 JavaPitanja(
-                    "Da?",
-                    "Ne",
+                    "Što znači JDK i JRE?",
+                    "Java Development Kit, Java Runtime Enviroment",
+                )
+            )
+            javaBaza.insertJava(
+                JavaPitanja(
+                    "Što će se dogoditi ako main() nije static?",
+                    "Dobiti ćemo error: \"NoSuchMethodError.\"",
                 )
             )
             return null
@@ -173,7 +185,7 @@ abstract class KreiranjeBaze : RoomDatabase() {
     }
 
     companion object {
-        private const val DB_NAME = "Tvrtka"
+        private const val DB_NAME = "Fakultet"
         @Volatile
         private var instance: KreiranjeBaze? = null
         @Synchronized

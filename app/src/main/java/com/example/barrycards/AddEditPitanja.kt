@@ -50,11 +50,11 @@ class AddEditPitanja : AppCompatActivity() {
             return
         }
         val data = Intent()
-        data.putExtra(AddEditPitanja.EXTRA_PITANJE, pitanje)
-        data.putExtra(AddEditPitanja.EXTRA_ODGOVOR, odgovor)
-        val id = intent.getIntExtra(AddEditPitanja.EXTRA_ID_PRVA_PITANJA, -1)
+        data.putExtra(EXTRA_PITANJE, pitanje)
+        data.putExtra(EXTRA_ODGOVOR, odgovor)
+        val id = intent.getIntExtra(EXTRA_ID_PRVA_PITANJA, -1)
         if (id != -1) {
-            data.putExtra(AddEditPitanja.EXTRA_ID_PRVA_PITANJA, id)
+            data.putExtra(EXTRA_ID_PRVA_PITANJA, id)
         }
         setResult(RESULT_OK, data)
         finish()

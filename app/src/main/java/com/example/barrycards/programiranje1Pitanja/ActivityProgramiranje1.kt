@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -86,7 +87,6 @@ class ActivityProgramiranje1 : AppCompatActivity() {
         }
 
 
-        //supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         val actionbar = supportActionBar
         actionbar!!.title="Programiranje 1 Pitanja"
         actionbar.setDisplayHomeAsUpEnabled(true)
@@ -158,27 +158,5 @@ class ActivityProgramiranje1 : AppCompatActivity() {
         const val EDIT_MULTI_PITANJA_REQUEST = 2
         private const val TAG = "ActivityProgramiranje1"
     }
-
-    /*fun okreni(){
-        setContentView(R.layout.sva_pitanja_item)
-
-        val buttonOkreni = findViewById<AppCompatImageButton>(R.id.button_okreni)
-        val pitanja = findViewById<TextView>(R.id.view_pitanje)
-        val odgovor = findViewById<TextView>(R.id.view_odgovor)
-
-        buttonOkreni.setOnClickListener{
-            if(pitanja.visibility == View.VISIBLE){
-                pitanja.visibility = View.INVISIBLE
-            }else if(pitanja.visibility == View.INVISIBLE){
-                pitanja.visibility = View.VISIBLE
-            }
-
-            if(odgovor.visibility == View.VISIBLE){
-                odgovor.visibility = View.INVISIBLE
-            }else if(odgovor.visibility == View.INVISIBLE){
-                odgovor.visibility = View.VISIBLE
-            }
-        }
-    }*/
 
     }

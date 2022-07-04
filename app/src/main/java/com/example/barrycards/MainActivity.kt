@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent(this, OdabirActivity::class.java))
                 finish()
             }, 500)
-        }, 1500) //ceka sekudnu i pol da provede drugu animaciju
+        }, 1500)
 
 
 
